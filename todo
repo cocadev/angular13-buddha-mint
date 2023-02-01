@@ -1,0 +1,8 @@
+
+
+
+
+
+----when deploying.----
+Bep20 needs to set ERC721
+ERC721 needs to setApprovalForAll() for bep20
