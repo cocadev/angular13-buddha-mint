@@ -3,75 +3,64 @@
     <div class="center-img">
     </div>
 
-      <h3 class="card-text" style="font-size: 2em">
-        <br> 
+    <h3 class="card-text" style="font-size: 2em">
+      <br>
 
-        <u> Mint $SIMON. </u>
-        <br><br>
-      </h3>
-     
-      <img
-        src="https://thebuddhainu.s3.amazonaws.com/coin.png"
-        alt="BuddhaInu"
-        height="200vh"
-        width="200vw"
-        style="border-radius: 50%"
-      /><br> <br>
+      <u> Mint $SIMON. </u>
+      <br><br>
+    </h3>
 
-      <div *ngIf="this.isLoading">
-        <br />
-        <div
-          class="spinner-grow"
-          style="width: 10em; height: 10em; color: #f0b90b"
-          role="status"
-        >
-          <span class="visually-hidden">Loading...</span>
-        </div>
-        <br />
-        <br />
-        <br />
+    <img src="https://static.wixstatic.com/media/c799d8_5001fe4055e54b228fc102b8013cde6a~mv2.gif" alt="BuddhaInu" height="200vh" width="200vw"
+      style="border-radius: 50%" /><br> <br>
 
-        <p style="font-size: 1.25em; color: #f0b90b">Loading...</p>
-        <br />
+    <div *ngIf="this.isLoading">
+      <br />
+      <div class="spinner-grow" style="width: 10em; height: 10em; color: #f0b90b" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <br />
+      <br />
+      <br />
+
+      <p style="font-size: 1.25em; color: #f0b90b">Loading...</p>
+      <br />
+    </div>
+
+
+    <div *ngIf="!this.isLoading">
+
+
+      <div *ngIf="this.userAddress == ''">
+        <p> MetaMask Not Connected. Please connect to ETH MAIN net.
+
+          <br>
+
+          This is where you will be able to see more details about the token and be able to mint.
+          <br>
+        </p>
+
       </div>
 
+      <div *ngIf="this.userAddress != ''">
+        <p style="font-size: 1.25em">
+          <br>
+          Symbol : {{ contractSymbol }}
+          <br />
+          Minted: {{ contractMinted }}
+          <br />
+          Total Supply : {{ contractTotalSupply }}
+          <br />
+          Current Price : {{ contractPrice }} ETH
+          <br />
 
-        <div *ngIf="!this.isLoading">
-
-
-          <div *ngIf="this.userAddress == ''">
-            <p>              MetaMask Not Connected. Please connect to ETH MAIN net.
-
-                           <br> 
-
-              This is where you will be able to see more details about the token and be able to mint.
-              <br>
-            </p>
-            
-          </div>
-
-        <div *ngIf="this.userAddress != ''">
-          <p style="font-size: 1.25em">
-<br>
-            Symbol : {{ contractSymbol }}
-            <br />
-            Minted: {{ contractMinted }}
-            <br />
-            Total Supply : {{ contractTotalSupply }}
-            <br />
-            Current Price : {{ contractPrice }} ETH
-            <br />
-  
-          </p>
-          <hr
-            style="
+        </p>
+        <hr style="
               color: #f0b90b;
               width: 85%;
               margin-left: auto;
               margin-right: auto;
-            "
-          />
-          <div class="card-body" id="manageCard">
+            " />
+        <div class="card-body" id="manageCard">
 
           <p>
             &nbsp;Your address: {{ userAddress }}
@@ -80,23 +69,11 @@
             <br />
           </p>
           <br>
-          <div
-            class="form-outline"
-            id="mintInput"
-            style="max-width: 60%; margin-left: auto; margin-right: auto"
-          >
-            <input
-              [ngModel]="numToBuy"
-              type="number"
-              (ngModelChange)="updatePrice($event)"
-              min="0"
-              max="100000000000"
-              step="1"
-              onfocus="this.previousValue = this.value"
+          <div class="form-outline" id="mintInput" style="max-width: 60%; margin-left: auto; margin-right: auto">
+            <input [ngModel]="numToBuy" type="number" (ngModelChange)="updatePrice($event)" min="0" max="100000000000"
+              step="1" onfocus="this.previousValue = this.value"
               onkeydown="if(event.key==='.'){event.preventDefault();} this.previousValue =this.value"
-              class="form-control"
-              placeholder="Amount To Buy"
-            />
+              class="form-control" placeholder="Amount To Buy" />
           </div>
           <br />
           <p>
@@ -106,65 +83,52 @@
 
           <br />
           <div class="center-div">
-            <button
-              *ngIf="this.numToBuy == '0' || this.numToBuy == 'null'"
-              class="favorite styledDisabled"
-              disabled
-            >
+            <button *ngIf="this.numToBuy == '0' || this.numToBuy == 'null'" class="favorite styledDisabled" disabled>
               Disabled
             </button>
-            
-            <button
-              *ngIf="this.numToBuy != '0' && this.numToBuy != 'null'"
-              class="favorite styled"
-              type="submit"
-              (click)="buy()"
-            >
+
+            <button *ngIf="this.numToBuy != '0' && this.numToBuy != 'null'" class="favorite styled" type="submit"
+              (click)="buy()">
               Mint
             </button>
 
-            <br><br>   
+            <br><br>
             &nbsp;
             &nbsp;
             &nbsp;
-            <button
-            class="favorite styled"
-            type="submit"
-            (click)="getContent()"
-    
-          >Refresh!
-          </button>
+            <button class="favorite styled" type="submit" (click)="getContent()">Refresh!
+            </button>
 
-         
+
 
 
           </div>
           <br>
           <br>
-          <img
+          <!-- <img
           src="https://thebuddhainu.s3.amazonaws.com/MONK1.png"
         alt="BuddhaInu"
         height="200vh"
         width="200vw"
         style="border-radius: 50%"
-      />        
-      <!--  -->
-      <!-- <img -->
-      <!-- src="https://thebuddhainu.s3.amazonaws.com/MONK4.png" -->
-    <!-- alt="BuddhaInu" -->
-    <!-- height="200vh" -->
-    <!-- width="200vw" -->
-    <!-- style="border-radius: 50%" -->
-  <!-- /> -->
-   
-  
-  <img
+      />         -->
+          <!--  -->
+          <!-- <img -->
+          <!-- src="https://thebuddhainu.s3.amazonaws.com/MONK4.png" -->
+          <!-- alt="BuddhaInu" -->
+          <!-- height="200vh" -->
+          <!-- width="200vw" -->
+          <!-- style="border-radius: 50%" -->
+          <!-- /> -->
+
+
+          <!-- <img
   src="https://thebuddhainu.s3.amazonaws.com/MONK5.png"
      alt="BuddhaInu"
       height="200vh"
        width="200vw"
            style="border-radius: 50%"
-/>
+/> -->
           <div *ngIf="this.purchaseString">
             <br />
             <p>{{ purchaseString }}</p>
@@ -174,54 +138,39 @@
 
         <div *ngIf="this.userAddress == ''">
           <p style="color: yellow">
-            MetaMask Not Connected.<br/>
+            MetaMask Not Connected.<br />
             Please verify you are connected to MAIN ETH NET.
             <br />
           </p>
           <br>
-          <button
-          class="favorite styled"
-          type="submit"
-          (click)="getContent()"
-  
-        >Refresh!
-        </button>
-        <br>          <br>
+          <button class="favorite styled" type="submit" (click)="getContent()">Refresh!
+          </button>
+          <br> <br>
 
-        <br>
-          <img
-          src="https://thebuddhainu.s3.amazonaws.com/MONK1.png"
-        alt="BuddhaInu"
-        height="200vh"
-        width="200vw"
-        style="border-radius: 50%"
-      />        
-      
-      <!-- <img -->
-      <!-- src="https://thebuddhainu.s3.amazonaws.com/MONK4.png" -->
-    <!-- alt="BuddhaInu" -->
-    <!-- height="200vh" -->
-    <!-- width="200vw" -->
-    <!-- style="border-radius: 50%" -->
-  <!-- /> -->
-   
-  
-  <img
-  src="https://thebuddhainu.s3.amazonaws.com/MONK5.png"
-     alt="BuddhaInu"
-      height="200vh"
-       width="200vw"
-           style="border-radius: 50%"
-/>
-      <br>
-      <br>
-          
+          <br>
+          <img src="https://thebuddhainu.s3.amazonaws.com/MONK1.png" alt="BuddhaInu" height="200vh" width="200vw"
+            style="border-radius: 50%" />
+
+          <!-- <img -->
+          <!-- src="https://thebuddhainu.s3.amazonaws.com/MONK4.png" -->
+          <!-- alt="BuddhaInu" -->
+          <!-- height="200vh" -->
+          <!-- width="200vw" -->
+          <!-- style="border-radius: 50%" -->
+          <!-- /> -->
+
+
+          <img src="https://thebuddhainu.s3.amazonaws.com/MONK5.png" alt="BuddhaInu" height="200vh" width="200vw"
+            style="border-radius: 50%" />
+          <br>
+          <br>
+
 
 
 
         </div>
 
-      <!-- <div *ngIf="this.error">
+        <!-- <div *ngIf="this.error">
           <p style="color: red">Found Error : {{ error }}</p>
         </div> -->
       </div>
