@@ -6,6 +6,8 @@ const provider = new Web3('https://mainnet.infura.io/v3/acec92755ab44329bf4ffd95
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from 'rxjs/internal/Observable';
 import bscContract from "src/app/services/Solidity/contract.service"
+import ethContract from "src/app/services/Solidity/contract.service"
+
 @Component({
   selector: 'app-nft',
   templateUrl: './nft.component.html',
@@ -69,6 +71,28 @@ export class NFTComponent implements OnInit {
   async ngOnInit(): Promise<any> {
     this.getContent()
 
+  }
+
+  async connectMetamask() {
+    try {
+      this.isLoading = true;
+      // this.contractAddress = ethContract._address
+      // this.contractName = await ethContract.methods.name().call()
+      // this.contractSymbol = await ethContract.methods.symbol().call()
+      // this.contractMinted = await ethContract.methods.totalSupply().call()
+      // this.contractTotalSupply = await ethContract.methods.maxSupply().call()
+      // this.contractPrice = Web3.utils.fromWei(await ethContract.methods.cost().call(), 'ether')
+      //this.isLoading = false;
+      this.userAddress = await this.web3.getAccounts()
+      // this.tokensOwned = await ethContract.methods.balanceOf(this.userAddress[0]).call()
+      // this.contractOwner = await ethContract.methods.owner().call()
+      this.isLoading = false;
+
+    } catch (e) {
+      this.error = e.message
+      this.isLoading = false;
+
+    }
   }
 
   async getContent() {
@@ -340,27 +364,32 @@ let data = {
 
   async mint() {
     this.error = ''
-
+    console.log('minting ... 1')
     try {
       this.isLoading = true;
       this.contractAddress = nftContract._address
-
-
+      console.log('minting ... 2')
 
       if (this.contractOwner == this.userAddress) {
         this.contractName = await nftContract.methods.mint(this.numToBuy).send({
           from: this.userAddress
         })
       } else {
+        console.log('minting ... 31', this.numToBuy)
+        console.log('minting ... 32', provider.utils.toWei(this.totalPrice, "ether"))
+
         this.contractName = await nftContract.methods.mint(this.numToBuy).send({
           from: this.userAddress,
           value: provider.utils.toWei(this.totalPrice, "ether")
         })
+        console.log('minting ... 4')
+
       }
 
       this.isLoading = false
-      this.getContent()
     } catch (e) {
+      console.log('minting ... 5', e)
+
       this.error = e.message
       this.isLoading = false;
 

@@ -55,19 +55,22 @@
         cheaper with SIMON while traditional ETH is also accepted. You will be
         able to stake an NFT for 1 Simon an hour for up to 10 years. -->
       </p>
-      <button
+
+    <button
+      *ngIf="this.userAddress == ''"
       class="favorite styledDisabled"
-      disabled
       type="button"
-      (click)="mint()"
+      (click)="connectMetamask()"
     >
       Connect Metamask
     </button>
-      <!-- <div *ngIf="this.userAddress == ''">
-        <p style="color: red">
-          MetaMask Not Connected. Please connect to BSC test net
+
+      <div *ngIf="this.userAddress !== ''">
+        <p>
+          Your wallet address: {{this.userAddress}}
         </p>
-      </div> -->
+      </div> 
+
       <div *ngIf="this.error">
         <p style="color: red">Found Error : {{ error }}</p>
       </div>
@@ -431,7 +434,6 @@
             <!-- <p>Buy {{ numToBuy }} for {{ totalPrice }}</p> -->
             <button
               class="favorite styledDisabled"
-              disabled
               type="button"
               (click)="mint()"
             >
