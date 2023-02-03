@@ -3,14 +3,20 @@
     <h3 class="card-text" style="font-size: 2em">
       <u>
         <br />
-        The Buddha Inu NFT's
+        The MotoDogs NFT's
       </u>
     </h3>
     <div class="row justify-content-md-center">
       <div class="col">
         <br />
-
         <img
+        src="https://static.wixstatic.com/media/c799d8_5001fe4055e54b228fc102b8013cde6a~mv2.gif"
+        alt="BuddhaInu"
+        height="150vh"
+        width="150vw"
+      />
+        
+        <!-- <img
           src="https://thebuddhainu.s3.amazonaws.com/MONK4.png"
           alt="BuddhaInu"
           height="150vh"
@@ -27,7 +33,7 @@
           alt="BuddhaInu"
           height="150vh"
           width="150vw"
-        />
+        /> -->
       </div>
     </div>
 
@@ -388,7 +394,7 @@
       <!-- <div *ngIf="this.isPaused == false"> -->
       <div class="row" style="margin-left: auto; margin-right: auto">
         <!-- <div class="center-div"> -->
-        <div class="col-xl-6">
+        <div class="col-xl-12">
           <div class="card-body" id="manageCard">
             <p class="card-text" style="font-size: 1em">
               MINT with ETH <br /><br />
@@ -424,7 +430,7 @@
             </button>
           </div>
         </div>
-        <div class="col-xl-6">
+        <!-- <div class="col-xl-6">
           <div class="card-body" id="manageCard">
             <p class="card-text" style="font-size: 1em">
               MINT with {{ contractSymbol }}<br /><br />
@@ -464,7 +470,7 @@
               Disabled!
             </button>
           </div>
-        </div>
+        </div> -->
         <!-- </div> -->
       </div>
       <hr
@@ -477,11 +483,10 @@
       />
         <!-- <p style="color: coral;">TEST RENDER COLLECTION BELOW.
         <br>This is not the BuddhaInu artwork.</p> -->
-      <div class="row" style="margin-left: auto; margin-right: auto">
+      <!-- <div class="row" style="margin-left: auto; margin-right: auto">
         <p>
           <u> UNSTAKED NFT's:</u> (1)
 
-          <!-- <u> UNSTAKED NFT's ({{ userNFTs.length }}) </u> -->
         </p>
 
         <div class="row" style="margin-left: auto; margin-right: auto">
@@ -514,26 +519,15 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="row" style="margin-left: auto; margin-right: auto">
+      <!-- <div class="row" style="margin-left: auto; margin-right: auto">
         <p>
-          <!-- <u> STAKED NFT'S ({{ userStakedNFTs.length }})</u> -->
           <u> STAKED NFT's:</u> (1)
 
-          <!-- <br />
-          <br /> -->
         </p>
         <div>
-          <!-- <button
-            class="favorite styledDisabled"
-            disabled
-            style="margin-left: auto; margin-right: auto"
-            type="button"
-            (click)="collectAllStakedNftReward()"
-          >
-            Collect all Staking!
-          </button> -->
+
           <br><br>
           <div class="row" style="margin-left: auto; margin-right: auto">
             <div class="col-xl-6" *ngFor="let obj of stakedNfts | keyvalue">
@@ -559,23 +553,10 @@
                   >
                     Unstake
                   </button>
-                  <!-- <button
-                    class="favorite styled"
-                    type="button"
-                    (click)="unstake(obj.value.id)"
-                  >
-                    Unstake
-                  </button> -->
+
                 </div>
                 <div class="center-div">
-                  <!-- <button
-                    class="favorite styled"
-                    type="button"
-                    (click)="collectStakedNftReward(obj.value.id)"
-                  >
-                    Claim {{ obj.value.potentialReward }}
-                    {{ contractSymbol }}
-                  </button> -->
+
                 
                   <button
                   class="favorite styled"
@@ -595,7 +576,7 @@
           <br />
           <br />
         </div>
-      </div>
+      </div> -->
       <!-- </div> -->
       <!-- </div> -->
     </div>
