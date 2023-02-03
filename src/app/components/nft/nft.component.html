@@ -10,10 +10,9 @@
       <div class="col">
         <br />
         <img
-        src="https://static.wixstatic.com/media/c799d8_5001fe4055e54b228fc102b8013cde6a~mv2.gif"
+        src="https://static.wixstatic.com/media/c799d8_f2e98c4e457146d5b8032aa490f7bbc7~mv2.png/v1/fill/w_439,h_616,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/c799d8_f2e98c4e457146d5b8032aa490f7bbc7~mv2.png"
         alt="BuddhaInu"
-        height="150vh"
-        width="150vw"
+        style="width: 50%"
       />
         
         <!-- <img
@@ -56,6 +55,14 @@
         cheaper with SIMON while traditional ETH is also accepted. You will be
         able to stake an NFT for 1 Simon an hour for up to 10 years. -->
       </p>
+      <button
+      class="favorite styledDisabled"
+      disabled
+      type="button"
+      (click)="mint()"
+    >
+      Connect Metamask
+    </button>
       <!-- <div *ngIf="this.userAddress == ''">
         <p style="color: red">
           MetaMask Not Connected. Please connect to BSC test net
@@ -75,7 +82,7 @@
       <!-- <p style="color: coral;">MOCK EXAMPLES. -->
         <!-- <br>Waiting for artwork.</p> -->
       <!-- <div *ngIf="this.userAddress != ''"> -->
-      <p style="font-size: 1.25em">
+      <p style="font-size: 1.25em; margin-top: 20px;">
         Mint Price: 0.029 ETH
        <!-- Your {{ contractSymbol }} tokens: {{ tokensOwned }} -->
       </p>
@@ -401,6 +408,7 @@
               MINT with ETH <br /><br />
               <!-- Price : {{ contractPrice }} ETH -->
             </p>
+            <p style="font-size: 1em">Select Quantity</p>
             <div
               class="form-outline"
               id="mintInput"
@@ -420,14 +428,14 @@
               />
             </div>
             <br />
-            <p>Buy {{ numToBuy }} for {{ totalPrice }}</p>
+            <!-- <p>Buy {{ numToBuy }} for {{ totalPrice }}</p> -->
             <button
               class="favorite styledDisabled"
               disabled
               type="button"
               (click)="mint()"
             >
-              Disabled!
+              Mint
             </button>
           </div>
         </div>
