@@ -3,7 +3,7 @@
     <h3 class="card-text" style="font-size: 2em">
       <u>
         <br />
-        The MotoDogs NFT's
+        MotoDogs NFTs Minting Page
       </u>
     </h3>
     <div class="row justify-content-md-center">
@@ -50,11 +50,11 @@
     </div>
     <div *ngIf="!this.isLoading">
       <p style="font-size: 1.25em">
-        NFT Collection Address: <p style="color: coral;">{{ contractAddress }}</p>
-        <p>
-        NFT Minting / Staking will take place here. Mint will be
+        <!-- NFT Collection Address: <p style="color: coral;">{{ contractAddress }}</p> -->
+        <p>User Interface
+        <!-- NFT Minting / Staking will take place here. Mint will be
         cheaper with SIMON while traditional ETH is also accepted. You will be
-        able to stake an NFT for 1 Simon an hour for up to 10 years.
+        able to stake an NFT for 1 Simon an hour for up to 10 years. -->
       </p>
       <!-- <div *ngIf="this.userAddress == ''">
         <p style="color: red">
@@ -64,19 +64,20 @@
       <div *ngIf="this.error">
         <p style="color: red">Found Error : {{ error }}</p>
       </div>
-      <hr
+      <!-- <hr
         style="
           color: #f0b90b;
           width: 85%;
           margin-left: auto;
           margin-right: auto;
         "
-      />
+      /> -->
       <!-- <p style="color: coral;">MOCK EXAMPLES. -->
         <!-- <br>Waiting for artwork.</p> -->
       <!-- <div *ngIf="this.userAddress != ''"> -->
       <p style="font-size: 1.25em">
-       Your {{ contractSymbol }} tokens: {{ tokensOwned }}
+        Mint Price: 0.029 ETH
+       <!-- Your {{ contractSymbol }} tokens: {{ tokensOwned }} -->
       </p>
       <!-- <img
           src="assets/example.gif"
@@ -398,7 +399,7 @@
           <div class="card-body" id="manageCard">
             <p class="card-text" style="font-size: 1em">
               MINT with ETH <br /><br />
-              Price : {{ contractPrice }} ETH
+              <!-- Price : {{ contractPrice }} ETH -->
             </p>
             <div
               class="form-outline"
